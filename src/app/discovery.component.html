@@ -1,1 +1,40 @@
-<h1>hello</h1>
+<div class="container">
+    <div class="jumbotron">
+        <div class="home-button">
+            <i class="fa fa-3x fa-home" aria-hidden="true"></i>
+        </div>
+        <div class="user">
+            <i class="fa fa-3x fa-user" aria-hidden="true"></i>
+        </div>
+        <div class="text-center">
+            <h1>Discover</h1>
+            <h3>New Music. Unheard Talent.</h3>
+        </div>
+    </div>
+    <div class="center">
+        <div class="discovery_main">
+            <div class="music-display">
+                <div class="image-wrapper">
+                    <img src="assets/Kanye.jpg">
+                </div>
+                <div *ngIf="show_play_status">
+                    <div *ngIf="playing" class="play-icon">
+                        <i class="fa fa-4x fa-play" aria-hidden="true"></i>
+                    </div>
+                    <div *ngIf="!playing" class="play-icon">
+                        <i class="fa fa-5x fa-pause" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <h1>Father Stretch My Hands Pt. 1</h1>
+                <h3>Kanye West</h3>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid soundOffFooter">
+        <div class="text-center">
+            <p>All Rights Reserved - Copyright SoundOff Inc. &copy; 2017 </p>
+        </div>
+    </footer>
+</div>

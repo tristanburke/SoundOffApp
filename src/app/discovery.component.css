@@ -1,0 +1,95 @@
+.container {
+    width: 100%;
+    background-color: #f47142;
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+h1, h3 {
+    margin: 0;
+}
+h1 {
+    padding-top: 15px;
+}
+.jumbotron {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.jumbotron h3 {
+    color: white;
+    padding-bottom: 15px;
+}
+.home-button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50px;
+    top: 50%;
+}
+.user {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    right: 30px;
+    top: 50%;
+}
+.center {
+    width: 100%;
+    text-align: center;
+}
+.discovery_main {
+    position: relative;
+    margin: auto;
+    width: 1000px;
+    height: 400px;
+}
+.music-display {
+    position: absolute;
+    text-align: right;
+    align-content: right;
+    left: 0;
+    top: 0;
+    height: 400px;
+    width: 600px;
+}
+.music-display .image-wrapper {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin-left: 180px;
+    margin-right: 20px;
+}
+.music-display img {
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -moz-box-shadow: 5px 7px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 5px 7px 5px rgba(0, 0, 0, .5);
+    box-shadow: 5px 7px 5px rgba(0, 0, 0, .5);
+}
+.music-display .play-icon {
+    position: absolute;
+    z-index: 3;
+    left: 400px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.controls {
+    text-align: left;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 500px;
+    width: 400px;
+}
+.controls h1 {
+    font-size: 38px;
+}
+.fa {
+    color: white;
+}
