@@ -9,9 +9,6 @@
 h1, h3 {
     margin: 0;
 }
-h1 {
-    padding-top: 15px;
-}
 .jumbotron {
     position: relative;
     background-color: transparent;
@@ -20,8 +17,10 @@ h1 {
     margin: 0;
 }
 .jumbotron h3 {
-    color: white;
     padding-bottom: 15px;
+}
+.jumbotron h1 {
+    padding-top: 15px;
 }
 .home-button {
     position: absolute;
@@ -34,6 +33,9 @@ h1 {
     transform: translate(-50%, -50%);
     right: 30px;
     top: 50%;
+}
+.fa-home:hover, .fa-user:hover{
+    color: black;
 }
 .center {
     width: 100%;
@@ -92,4 +94,17 @@ h1 {
 }
 .fa {
     color: white;
+}
+.progress {
+    width: 400px;
+    height: 10px;
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 0;
+}
+.progress-bar {
+    background-color: #f47142;
 }
