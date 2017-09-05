@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HostListener } from '@angular/core';
+import { Song } from './song';
 
 export enum KEY_CODE {
   SPACE = 32,
@@ -18,12 +19,14 @@ export class DiscoveryComponent {
   playing: boolean;
   show_play_status: boolean;
   progress_index: number;
+  current_song: Song;
 
   constructor() {
     this.playing = true;
     this.show_play_status = false;
-    this.progress_index = -90;
-    this.play()
+    this.progress_index = 0;
+    this.retrieve_song();
+    this.play();
   }
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
@@ -38,25 +41,24 @@ export class DiscoveryComponent {
 
     }
   }
-  toggle_playing() : void {
-    if (!this.playing) {
-      this.play()
-    }
-    this.playing = !this.playing;
-    this.show_playing_status();
-  }
-  show_playing_status() : void {
-    this.show_play_status = true;
-    setTimeout(() => {
-      this.show_play_status = false;
-    }, 1000);
-  }
+  /** Plays Music **/
   play() : void {
     for (var i = 0; i < 100; i++) {
       this.increment_progress_index();
     }
   }
-  increment_progress_index() : void {
-    setTimeout(this.progress_index = this.progress_index + 1, 2000)
+
+  /** Pauses or Plays music **/
+  toggle_playing() : void {
+    if (!this.playing) {
+      this.play()
+    }
+    this.playing = !this.playing;
+  }
+
+  /** Retrieves random song using discovery service
+   *  Sets component variable  **/
+  retrieve_song() : void {
+
   }
 }
