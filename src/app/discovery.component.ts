@@ -22,7 +22,7 @@ export class DiscoveryComponent {
   constructor() {
     this.playing = true;
     this.show_play_status = false;
-    this.progress_index = 0;
+    this.progress_index = -90;
     this.play()
   }
   @HostListener('window:keyup', ['$event'])
@@ -52,10 +52,11 @@ export class DiscoveryComponent {
     }, 1000);
   }
   play() : void {
-    for (let _i = 0; _i <= 100; _i++) {
-      setTimeout(() => {
-        this.progress_index += 1;
-      }, 500);
+    for (var i = 0; i < 100; i++) {
+      this.increment_progress_index();
     }
+  }
+  increment_progress_index() : void {
+    setTimeout(this.progress_index = this.progress_index + 1, 2000)
   }
 }
