@@ -5,7 +5,10 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DiscoveryComponent } from './discovery.component';
+
+import { DiscoveryService } from './discovery.service';
 import { AppRoutingModule } from './app-routing.module';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -16,9 +19,10 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HttpModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DiscoveryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,7 @@
         <div class="discovery_main">
             <div class="music-display">
                 <div class="image-wrapper">
-                    <img src="assets/Kanye.jpg">
+                    <img src="{{current_song.album_path}}">
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="75"
                              aria-valuemin="0" aria-valuemax="100" style="width:70%">
@@ -32,8 +32,8 @@
                 </div>
             </div>
             <div class="controls">
-                <h1>Father Stretch My Hands Pt. 1</h1>
-                <h3>Kanye West</h3>
+                <h1>{{current_song.title}}</h1>
+                <h3>{{current_song.artist_name}}</h3>
             </div>
         </div>
     </div>

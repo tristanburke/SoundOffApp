@@ -2,6 +2,7 @@ import { Artist } from './artist';
 
 export class Song {
     title: string;
+    artist_name: string;
     album_path: string;
-    artist: Artist;
+    music_path: string;
 }
