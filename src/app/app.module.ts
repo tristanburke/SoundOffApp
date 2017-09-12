@@ -9,6 +9,8 @@ import { DiscoveryComponent } from './discovery.component';
 import { DiscoveryService } from './discovery.service';
 import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpModule,
     FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IonicAudioModule
   ],
   providers: [DiscoveryService],
   bootstrap: [AppComponent]

@@ -5,4 +5,8 @@ export class Song {
     artist_name: string;
     album_path: string;
     music_path: string;
+    state: string;
+
+    constructor(state = 'inactive') {
+    }
 }

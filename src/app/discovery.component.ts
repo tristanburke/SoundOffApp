@@ -3,7 +3,9 @@ import { HostListener } from '@angular/core';
 import { Song } from './song';
 import { DiscoveryService } from './discovery.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { trigger, state, style} from '@angular/animations';
+import { trigger, state, style, transition, animate} from '@angular/animations';
+import { AudioProvider } from 'ionic-audio';
+
 
 
 export enum KEY_CODE {
@@ -18,9 +20,15 @@ export enum KEY_CODE {
   templateUrl: './discovery.component.html',
   styleUrls: ['./discovery.component.css'],
   animations: [
-    trigger('songAnimation', [
-      state('enter' , style({ })),
-      state('exit', style({ })),
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({transform: 'translateX(100%)'}))
+      ])
     ])
   ]
 })
@@ -31,11 +39,12 @@ export class DiscoveryComponent {
   progress_index: number;
   current_song: Song;
 
-  constructor(private discoveryService: DiscoveryService) {
+  constructor(private discoveryService: DiscoveryService, private _audioProvider: AudioProvider) {
     this.playing = true;
     this.show_play_status = false;
     this.progress_index = 0;
     this.retrieve_song();
+    this.addSong();
     this.play();
   }
 
@@ -55,12 +64,26 @@ export class DiscoveryComponent {
 
   /** Plays Music **/
   play(): void {
+    this._audioProvider.play(this._audioProvider.current);
+  }
+
+  /** Pauses Music **/
+  pause(): void {
+    this._audioProvider.pause();
+  }
+
+  /** Adds Song to Audio Player Stack **/
+  addSong(): void {
+    let track = {'src': this.current_song.music_path};
+    this._audioProvider.add(this._audioProvider.create(track));
   }
 
   /** Pauses or Plays music **/
   toggle_playing(): void {
-    if (!this.playing) {
-      this.play()
+    if (this.playing) {
+      this.pause();
+    } else {
+      this.play();
     }
     this.playing = !this.playing;
     this.show_playing_status();
@@ -77,5 +100,7 @@ export class DiscoveryComponent {
    *  Sets component variable  **/
   retrieve_song() : void {
     this.current_song = this.discoveryService.getRandomSong();
+    this.current_song.state = 'active';
+    this.addSong();
   }
 }
